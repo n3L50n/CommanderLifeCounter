@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CommanderLifeCounter</string>
+
+    <!--Content Description Strings-->
+    <string name="add_person_content_description">An icon with a person and a plus symbol</string>
+    <string name="refresh_content_description">An icon with a loopy arrow</string>
+    <string name="settings_content_description">An icon with gear</string>
+
+</resources>
