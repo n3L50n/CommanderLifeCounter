@@ -6,6 +6,42 @@
     android:orientation="vertical"
     tools:context="com.node_coyote.commanderlifecounter.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <include layout="@layout/poison_counter_set" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <include layout="@layout/experience_counter_set" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <include layout="@layout/energy_counter_set" />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
     <FrameLayout
         android:id="@+id/main_life_view"
         android:layout_width="match_parent"
@@ -13,34 +49,20 @@
         android:layout_weight="5"
         android:gravity="center">
 
-        <Button
+        <FrameLayout
+            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginRight="16dp"
-            tools:text="+" />
+            android:layout_margin="8dp">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginLeft="16dp"
-            tools:text="-" />
+            <include layout="@layout/commander_life_set" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="+" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="-" />
+        </FrameLayout>
 
         <Button
             android:id="@+id/owner_life_add_button"
             android:layout_width="150dp"
-            android:layout_height="75dp"
+            android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginBottom="36dp"
             android:background="@color/transparent"
@@ -50,7 +72,7 @@
         <Button
             android:id="@+id/owner_life_subtract_button"
             android:layout_width="150dp"
-            android:layout_height="75dp"
+            android:layout_height="65dp"
             android:layout_gravity="center"
             android:layout_marginTop="36dp"
             android:background="@color/transparent"
