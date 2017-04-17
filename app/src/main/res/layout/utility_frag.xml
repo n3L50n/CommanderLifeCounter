@@ -2,12 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/utility_view"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:background="@color/utility_background"
-    android:gravity="center"
-    android:orientation="horizontal">
+    style="@style/UtilityLayoutStyle">
 
     <ImageView
         android:id="@+id/add_person_image_view"

@@ -8,6 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="UtilityLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/utility_layout_height</item>
+        <item name="android:layout_weight">@integer/utility_layout_weight</item>
+        <item name="android:background">@color/utility_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
     <style name="UtilityButtonStyle">
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_marginLeft">@dimen/utility_image_margin_left</item>
