@@ -6,41 +6,13 @@
     android:orientation="vertical"
     tools:context="com.node_coyote.commanderlifecounter.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:orientation="horizontal">
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp">
-
-            <include layout="@layout/poison_counter_set" />
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp">
-
-            <include layout="@layout/experience_counter_set" />
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp">
-
-            <include layout="@layout/energy_counter_set" />
-
-        </FrameLayout>
-
-
-    </LinearLayout>
+    <ViewStub
+        tools:visibility="visible"
+        android:id="@+id/poison_experience_energy_stub"
+        android:inflatedId="@+id/poison_experience_energy_frag"
+        android:layout="@layout/poison_experience_energy_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <FrameLayout
         android:id="@+id/main_life_view"
