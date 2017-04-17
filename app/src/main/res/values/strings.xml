@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">CommanderLifeCounter</string>
 
+    <string name="name_hint_text">enter a players name</string>
+
     <!--Content Description Strings-->
     <string name="add_person_content_description">An icon with a person and a plus symbol</string>
     <string name="refresh_content_description">An icon with a loopy arrow</string>

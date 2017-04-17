@@ -3,5 +3,7 @@
 
     <dimen name="utility_icon_width">42dp</dimen>
     <dimen name="utility_icon_height">42dp</dimen>
+    <dimen name="owner_life_text_view">128sp</dimen>
+    <dimen name="single_opponent_life_text_view">96sp</dimen>
 
 </resources>
