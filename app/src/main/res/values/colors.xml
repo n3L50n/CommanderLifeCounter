@@ -4,5 +4,9 @@
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="utility_background">#999999</color>
+
+    <color name="transparent">#AAFFFFAA</color>
+
+    <color name="utility_background">#BBBBBB</color>
+
 </resources>

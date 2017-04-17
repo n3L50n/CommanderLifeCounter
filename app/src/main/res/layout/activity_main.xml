@@ -14,11 +14,36 @@
         android:gravity="center">
 
         <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="16dp"
+            tools:text="+" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginLeft="16dp"
+            tools:text="-" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="+" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="-" />
+
+        <Button
             android:id="@+id/owner_life_add_button"
             android:layout_width="150dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
             android:layout_marginBottom="36dp"
+            android:background="@color/transparent"
             android:textSize="36sp"
             tools:text="+" />
 
@@ -28,6 +53,7 @@
             android:layout_height="75dp"
             android:layout_gravity="center"
             android:layout_marginTop="36dp"
+            android:background="@color/transparent"
             android:textSize="36sp"
             tools:text="-" />
 
@@ -41,52 +67,29 @@
             tools:text="20" />
 
         <EditText
-            android:gravity="center"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:hint="@string/name_hint_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom" />
+            android:layout_gravity="center|bottom"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:hint="@string/name_hint_text" />
 
     </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/detail_life_container"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:gravity="center"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/single_opponent_life_add_button"
-            android:layout_width="120dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="28dp"
-            android:textSize="28sp"
-            tools:text="+" />
+        <include layout="@layout/detail_life_frag" />
 
-        <Button
-            android:id="@+id/single_opponent_life_subtract_button"
-            android:layout_width="120dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="28dp"
-            android:textSize="28sp"
-            tools:text="-" />
+        <include layout="@layout/detail_life_frag" />
 
-        <TextView
-            android:id="@+id/opponent_life_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="@dimen/single_opponent_life_text_view"
-            tools:text="20" />
+        <include layout="@layout/detail_life_frag" />
 
-    </FrameLayout>
+    </LinearLayout>
 
     <include layout="@layout/utility_frag" />
 
