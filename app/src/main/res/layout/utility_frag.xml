@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/utility_view"
     style="@style/UtilityLayoutStyle">
 
-    <ImageView
+    <Button
         android:id="@+id/add_person_image_view"
         style="@style/UtilityButtonStyle"
         android:contentDescription="@string/add_person_content_description"
-        android:src="@drawable/ic_add_person" />
+        app:srcCompat="@drawable/ic_add_person" />
 
-    <ImageView
-        android:id="@+id/refresh_image_view"
+    <Button
+        android:id="@+id/reset_image_view"
         style="@style/UtilityButtonStyle"
         android:contentDescription="@string/refresh_content_description"
-        android:src="@drawable/ic_refresh" />
+        app:srcCompat="@drawable/ic_refresh" />
 
-    <ImageView
+    <Button
         android:id="@+id/settings_image_view"
         style="@style/UtilityButtonStyle"
         android:contentDescription="@string/settings_content_description"
-        android:src="@drawable/ic_settings" />
+        app:srcCompat="@drawable/ic_settings" />
 
 </LinearLayout>

@@ -3,6 +3,11 @@
 
     <string name="name_hint_text">enter a players name</string>
 
+    <string name="reset_dialog_default_message">Reset eh? Did Player One win with 20 life?</string>
+    <string name="reset_dialog_yes">Yes</string>
+    <string name="reset_dialog_no">No</string>
+    <string name="reset_dialog_dont_care">Don\'t care</string>
+
     <!--Content Description Strings-->
     <string name="add_person_content_description">An icon with a person and a plus symbol</string>
     <string name="refresh_content_description">An icon with a loopy arrow</string>
