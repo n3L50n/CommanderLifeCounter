@@ -114,7 +114,6 @@ public class PlayerProvider extends ContentProvider {
         switch (match) {
             case PLAYERS:
                 return insertPlayer(uri, values);
-            case PLAYERS_ID:
             default:
                 throw new IllegalArgumentException("Insertion is not supported for " + uri);
         }

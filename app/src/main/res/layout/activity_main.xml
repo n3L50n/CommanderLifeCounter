@@ -15,7 +15,7 @@
         android:layout_height="wrap_content" />
 
     <FrameLayout
-        android:id="@+id/main_life_view"
+        android:id="@+id/focus_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
@@ -32,7 +32,7 @@
         </FrameLayout>
 
         <Button
-            android:id="@+id/owner_life_add_button"
+            android:id="@+id/focus_life_add_button"
             android:layout_width="150dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
@@ -42,7 +42,7 @@
             tools:text="+" />
 
         <Button
-            android:id="@+id/owner_life_subtract_button"
+            android:id="@+id/focus_life_subtract_button"
             android:layout_width="150dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
@@ -52,15 +52,16 @@
             tools:text="-" />
 
         <TextView
-            android:id="@+id/owner_life_text_view"
+            android:id="@+id/focus_life_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textSize="@dimen/owner_life_text_view"
+            android:textSize="@dimen/focus_life_text_view"
             tools:text="20" />
 
         <EditText
+            android:id="@+id/name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|bottom"

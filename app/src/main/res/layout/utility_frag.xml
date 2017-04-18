@@ -5,19 +5,19 @@
     android:id="@+id/utility_view"
     style="@style/UtilityLayoutStyle">
 
-    <Button
+    <ImageButton
         android:id="@+id/add_person_image_view"
         style="@style/UtilityButtonStyle"
         android:contentDescription="@string/add_person_content_description"
         app:srcCompat="@drawable/ic_add_person" />
 
-    <Button
+    <ImageButton
         android:id="@+id/reset_image_view"
         style="@style/UtilityButtonStyle"
         android:contentDescription="@string/refresh_content_description"
         app:srcCompat="@drawable/ic_refresh" />
 
-    <Button
+    <ImageButton
         android:id="@+id/settings_image_view"
         style="@style/UtilityButtonStyle"
         android:contentDescription="@string/settings_content_description"

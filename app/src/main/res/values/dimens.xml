@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="owner_life_text_view">136sp</dimen>
+    <dimen name="focus_life_text_view">136sp</dimen>
     <dimen name="single_opponent_life_text_view">84sp</dimen>
 
     <!--Utility Button Dimens-->
-    <dimen name="utility_icon_width">36dp</dimen>
-    <dimen name="utility_icon_height">36dp</dimen>
+    <dimen name="utility_icon_width">42dp</dimen>
+    <dimen name="utility_icon_height">42dp</dimen>
     <dimen name="utility_image_margin_left">24dp</dimen>
     <dimen name="utility_image_margin_right">24dp</dimen>
     <dimen name="utility_layout_height">0dp</dimen>
