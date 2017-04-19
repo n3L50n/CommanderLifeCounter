@@ -35,6 +35,9 @@ public class DetailLifePagerAdapter extends FragmentPagerAdapter {
                 return new DetailLifeFragment();
             case 1:
                 return new DetailLifeFragment();
+            case 2:
+                return new DetailLifeFragment();
+
             default:
                 return new DetailLifeFragment();
         }

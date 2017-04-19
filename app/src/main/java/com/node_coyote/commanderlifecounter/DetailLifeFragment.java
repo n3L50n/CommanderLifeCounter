@@ -32,7 +32,7 @@ public class DetailLifeFragment extends Fragment {
 
         TextView lifeTotal = (TextView) rootView.findViewById(R.id.opponent_life_text_view);
         lifeTotal.setText("20");
-        
+
         return rootView;
 
     }
