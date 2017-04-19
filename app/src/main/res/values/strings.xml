@@ -3,9 +3,15 @@
 
     <string name="name_hint_text">enter a players name</string>
 
+    <!--Greeting Decision Strings-->
+    <string name="opening_greeting_question">Are you looking for a normal or commander game?</string>
+    <string name="opening_greeting_support">You can add more players afterward</string>
+
     <!--Default Strings-->
     <string name="focus_default_life_total">20</string>
 
+
+    <!--Reset Dialog Strings-->
     <string name="reset_dialog_default_message">Reset eh? Did Player One win with 20 life?</string>
     <string name="reset_dialog_yes">Yes</string>
     <string name="reset_dialog_no">No</string>

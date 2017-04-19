@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="basic_margin">16dp</dimen>
+
     <dimen name="focus_life_text_view">136sp</dimen>
     <dimen name="single_opponent_life_text_view">84sp</dimen>
 
