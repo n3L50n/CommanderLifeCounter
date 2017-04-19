@@ -1,38 +1,57 @@
-<FrameLayout android:id="@+id/detail_life_container"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_life_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:gravity="center"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:gravity="center">
 
-    <Button
-        android:id="@+id/single_opponent_life_add_button"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="28dp"
-        android:background="@color/transparent"
-        android:textSize="28sp"
-        tools:text="+" />
-
-    <Button
-        android:id="@+id/single_opponent_life_subtract_button"
-        android:layout_width="110dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="28dp"
-        android:background="@color/transparent"
-        android:textSize="28sp"
-        tools:text="-" />
-
-    <TextView
-        android:id="@+id/opponent_life_text_view"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="@dimen/single_opponent_life_text_view"
-        tools:text="20" />
+        android:layout_marginBottom="16dp">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/single_opponent_life_add_button"
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="28dp"
+            android:background="@color/transparent"
+            android:textSize="28sp"
+            tools:text="+" />
+
+        <Button
+            android:id="@+id/single_opponent_life_subtract_button"
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:background="@color/transparent"
+            android:textSize="28sp"
+            tools:text="-" />
+
+        <TextView
+            android:text="20"
+            android:id="@+id/opponent_life_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="@dimen/single_opponent_life_text_view"
+            tools:text="20" />
+    </FrameLayout>
+
+    <EditText
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:hint="@string/name_hint_text"
+        android:inputType="textCapSentences"
+        android:padding="8dp"
+        tools:text="@string/name_hint_text" />
+
+
+</android.support.v7.widget.CardView>

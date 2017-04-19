@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -58,6 +59,13 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.normal_activity);
 
+        // Find the ViewPager to display the cards
+        ViewPager detailLifeViewPager = (ViewPager) findViewById(R.id.detail_view_pager);
+
+        // Find the fragment pager to display the list of detail life cards packed with data
+        DetailLifePagerAdapter detailFragmentPagerAdapter = new DetailLifePagerAdapter(getSupportFragmentManager());
+        detailLifeViewPager.setAdapter(detailFragmentPagerAdapter);
+
         Intent intent = getIntent();
         mCurrentPlayerUri = intent.getData();
 
@@ -80,22 +88,15 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
         addFocusLife.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // Pull out the current life total
-
                 int lifeTotal = Integer.parseInt(mFocusLifeTotal.getText().toString());
-
-                Log.v(LOG_TAG, "Before" + String.valueOf(lifeTotal));
-
 
                 if (!TextUtils.isEmpty(String.valueOf(lifeTotal))){
                     lifeTotal ++;
                 }
 
-                Log.v(LOG_TAG, "After" + String.valueOf(lifeTotal));
-
-
                 String newLifeTotal = Integer.toString(lifeTotal);
-                Log.v(LOG_TAG, String.valueOf(newLifeTotal));
 
                 mFocusLifeTotal.setText(newLifeTotal);
 
@@ -116,21 +117,13 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
             public void onClick(View v) {
 
                 // Pull out the current life total
-
                 int lifeTotal = Integer.parseInt(mFocusLifeTotal.getText().toString());
-
-                Log.v(LOG_TAG, "Before" + String.valueOf(lifeTotal));
-
 
                 if (!TextUtils.isEmpty(String.valueOf(lifeTotal))){
                     lifeTotal --;
                 }
 
-                Log.v(LOG_TAG, "After" + String.valueOf(lifeTotal));
-
-
                 String newLifeTotal = Integer.toString(lifeTotal);
-                Log.v(LOG_TAG, String.valueOf(newLifeTotal));
 
                 mFocusLifeTotal.setText(newLifeTotal);
 
