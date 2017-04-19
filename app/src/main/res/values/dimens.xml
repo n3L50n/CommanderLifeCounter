@@ -6,6 +6,10 @@
     <dimen name="focus_life_text_view">136sp</dimen>
     <dimen name="single_opponent_life_text_view">84sp</dimen>
 
+    <!--Greeting Button Dimens-->
+    <dimen name="greeting_button_width">100dp</dimen>
+    <dimen name="greeting_button_height">100dp</dimen>
+
     <!--Utility Button Dimens-->
     <dimen name="utility_icon_width">42dp</dimen>
     <dimen name="utility_icon_height">42dp</dimen>

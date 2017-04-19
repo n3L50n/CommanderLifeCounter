@@ -7,42 +7,24 @@
     android:orientation="vertical"
     tools:context="com.node_coyote.commanderlifecounter.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/basic_margin"
-        android:gravity="center"
-        android:orientation="horizontal">
+    <LinearLayout style="@style/GreetingButtonContainerStyle">
 
         <ImageButton
-            android:layout_margin="@dimen/basic_margin"
-            android:background="@color/transparent"
             android:id="@+id/start_normal_game"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter"
+            style="@style/GreetingButtonStyle"
+            android:contentDescription="@string/normal_game_greeting_icon_content_description"
             android:src="@drawable/energy_logo" />
 
         <ImageButton
-            android:layout_margin="@dimen/basic_margin"
-            android:background="@color/transparent"
             android:id="@+id/start_commander_game"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="fitCenter"
+            style="@style/GreetingButtonStyle"
+            android:contentDescription="@string/commander_game_greeting_icon_content_description"
             android:src="@drawable/commander" />
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/opening_greeting_question"
-        android:textStyle="bold" />
+    <TextView style="@style/GreetingQuestionStyle" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/opening_greeting_support" />
+    <TextView style="@style/GreetingSupportStyle" />
 
 </LinearLayout>

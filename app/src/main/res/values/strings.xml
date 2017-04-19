@@ -24,6 +24,8 @@
     <string name="energy_content_description">An icon for energy</string>
     <string name="experience_content_description">An icon for experience</string>
     <string name="poison_content_description">An icon for poison</string>
+    <string name="normal_game_greeting_icon_content_description">An icon for a normal game</string>
+    <string name="commander_game_greeting_icon_content_description">An icon for a commander game</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->

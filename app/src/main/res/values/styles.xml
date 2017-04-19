@@ -8,6 +8,42 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--Greeting Layout Styles-->
+    <style name="GreetingButtonContainerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">@dimen/basic_margin</item>
+    </style>
+
+    <style name="GreetingButtonStyle">
+        <item name="android:layout_width">@dimen/greeting_button_width</item>
+        <item name="android:layout_height">@dimen/greeting_button_height</item>
+        <item name="android:layout_margin">@dimen/basic_margin</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="GreetingQuestionStyle">
+        <item name="android:text">@string/opening_greeting_question</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginRight">@dimen/basic_margin</item>
+        <item name="android:layout_marginLeft">@dimen/basic_margin</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="GreetingSupportStyle">
+        <item name="android:text">@string/opening_greeting_support</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginRight">@dimen/basic_margin</item>
+        <item name="android:layout_marginLeft">@dimen/basic_margin</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <!--Utility Layout Styles-->
     <style name="UtilityLayoutStyle">
         <item name="android:layout_width">match_parent</item>
