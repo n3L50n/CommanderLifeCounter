@@ -8,14 +8,12 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -160,10 +158,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
-        // TODO Remove from onCreate for lazier loading. Not necessary in first load?
-        ViewStub poisonEnergyExperienceContainer = (ViewStub) findViewById(R.id.poison_experience_energy_stub);
-        View topContainer =  poisonEnergyExperienceContainer.inflate();
-        topContainer.setVisibility(View.INVISIBLE);
+        // TODO Distribute ViewStubs depending on the version of Magic chosen
+//        ViewStub normalStub = (ViewStub) findViewById(R.id.normal_game_additions_stub);
+////        View topContainer =  normalStub.inflate();
+////        topContainer.setVisibility(View.INVISIBLE);
+
+//        ViewStub commanderStub = (ViewStub) findViewById(R.id.commander_game_additions_stub);
+//        View commanderTopContainer = commanderStub.inflate();
+//        commanderTopContainer.setVisibility(View.VISIBLE);
+
+
     }
 
 

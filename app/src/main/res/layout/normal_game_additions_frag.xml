@@ -19,15 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp">
 
-        <include layout="@layout/experience_counter_set" />
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp">
-
         <include layout="@layout/energy_counter_set" />
 
     </FrameLayout>

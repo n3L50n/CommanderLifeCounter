@@ -8,9 +8,17 @@
 
     <ViewStub
         tools:visibility="visible"
-        android:id="@+id/poison_experience_energy_stub"
-        android:inflatedId="@+id/poison_experience_energy_frag"
-        android:layout="@layout/poison_experience_energy_frag"
+        android:id="@+id/normal_game_additions_stub"
+        android:inflatedId="@+id/normal_game_additions_frag"
+        android:layout="@layout/normal_game_additions_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ViewStub
+        tools:visibility="visible"
+        android:id="@+id/commander_game_additions_stub"
+        android:inflatedId="@+id/commander_game_additions_frag"
+        android:layout="@layout/commander_game_additions_frag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -20,16 +28,6 @@
         android:layout_height="0dp"
         android:layout_weight="5"
         android:gravity="center">
-
-        <FrameLayout
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp">
-
-            <include layout="@layout/commander_life_set" />
-
-        </FrameLayout>
 
         <Button
             android:id="@+id/focus_life_add_button"

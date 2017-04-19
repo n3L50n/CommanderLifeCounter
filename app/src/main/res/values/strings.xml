@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Commander Tower</string>
+    <string name="app_name">Command Tower</string>
 
     <string name="name_hint_text">enter a players name</string>
 

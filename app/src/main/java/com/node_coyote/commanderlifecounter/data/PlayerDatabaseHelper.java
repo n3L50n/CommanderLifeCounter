@@ -41,9 +41,7 @@ public class PlayerDatabaseHelper extends SQLiteOpenHelper {
                 + PlayerEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + PlayerEntry.COLUMN_PLAYER_NAME + "TEXT NOT NULL, "
                 + PlayerEntry.COLUMN_PLAYER_LIFE + "INTEGER NOT NULL DEFAULT 20, "
-                + PlayerEntry.COLUMN_PLAYER_COMMANDER_LIFE + "INTEGER NOT NULL DEFAULT 40, "
                 + PlayerEntry.COLUMN_PLAYER_ENERGY + "INTEGER NOT NULL DEFAULT 0, "
-                + PlayerEntry.COLUMN_PLAYER_EXPERIENCE + "INTEGER NOT NULL DEFAULT 0, "
                 + PlayerEntry.COLUMN_PLAYER_POISON + "INTEGER NOT NULL DEFAULT 0, "
                 + PlayerEntry.COLUMN_PLAYER_WON + "INTEGER NOT NULL DEFAULT 0, "
                 + PlayerEntry.COLUMN_PLAYER_LOST + "INTEGER NOT NULL DEFAULT 0);";
