@@ -1,8 +1,10 @@
-package com.node_coyote.commanderlifecounter.data;
+package com.node_coyote.commanderlifecounter.commanderData;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.node_coyote.commanderlifecounter.data.PlayerContract;
 
 /**
  * Created by node_coyote on 4/18/17.
