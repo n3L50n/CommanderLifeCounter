@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/GameAdditionsCardStyles"
     android:layout_gravity="center">
 
-    <Button style="@style/AdditionPlusButtonStyle" />
+    <Button
+        android:id="@+id/commander_life_plus_button"
+        style="@style/AdditionPlusButtonStyle" />
 
-    <Button style="@style/AdditionMinusButtonStyle" />
+    <Button
+        android:id="@+id/commander_life_minus_button"
+        style="@style/AdditionMinusButtonStyle" />
 
-    <ImageView style="@style/AdditionImageStyle"
+    <ImageView
+        android:contentDescription="@string/commander_icon_content_description"
+        style="@style/AdditionImageStyle"
         android:src="@drawable/commander"/>
 
     <TextView
         android:id="@+id/commander_addition_life_text_view"
         style="@style/AdditionTextStyle" />
 
-</android.support.v7.widget.CardView>
+</FrameLayout>

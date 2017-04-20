@@ -1,10 +1,12 @@
-<android.support.v7.widget.CardView android:id="@+id/focus_container"
+<FrameLayout android:id="@+id/focus_container"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:layout_weight="4"
+    android:layout_weight="6"
     android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <include layout="@layout/commander_additions_set" />
 
     <Button
         android:id="@+id/focus_life_add_button"
@@ -27,6 +29,7 @@
         tools:text="-" />
 
     <TextView
+        android:layout_marginTop="@dimen/basic_margin"
         android:id="@+id/focus_life_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,4 +48,4 @@
         android:gravity="center"
         android:hint="@string/name_hint_text" />
 
-</android.support.v7.widget.CardView>
+</FrameLayout>

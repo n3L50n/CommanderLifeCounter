@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/debug_semi_transparent"
     tools:context="com.node_coyote.commanderlifecounter.MainActivity">
 
-    <include layout="@layout/commander_additions_set" />
+    <!--<include layout="@layout/commander_additions_set" />-->
 
     <include layout="@layout/focus_container" />
 

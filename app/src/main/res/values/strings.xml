@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Command Tower</string>
 
-    <string name="name_hint_text">enter a players name</string>
+    <string name="name_hint_text">edit name</string>
 
     <!--Greeting Decision Strings-->
     <string name="opening_greeting_question">Are you looking for a normal or commander game?</string>
@@ -26,7 +26,7 @@
     <string name="experience_content_description">An icon for experience</string>
     <string name="poison_content_description">An icon for poison</string>
     <string name="normal_game_greeting_icon_content_description">An icon for a normal game</string>
-    <string name="commander_game_greeting_icon_content_description">An icon for a commander game</string>
+    <string name="commander_icon_content_description">An icon for a commander game</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->

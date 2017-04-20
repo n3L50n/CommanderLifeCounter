@@ -38,7 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
         // create a new view
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_life_frag, parent, false);
+        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_life_card, parent, false);
         // set the view's size, margins, paddings and layout parameters
 
         TextView l = (TextView) v.findViewById(R.id.opponent_life_text_view);
