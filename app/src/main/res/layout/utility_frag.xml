@@ -6,7 +6,7 @@
     style="@style/UtilityLayoutStyle">
 
     <ImageButton
-        android:id="@+id/add_person_image_view"
+        android:id="@+id/add_person_image_button"
         style="@style/UtilityButtonStyle"
         android:contentDescription="@string/add_person_content_description"
         app:srcCompat="@drawable/ic_add_person" />

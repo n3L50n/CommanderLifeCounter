@@ -23,6 +23,8 @@ import android.widget.TextView;
 
 import com.node_coyote.commanderlifecounter.data.PlayerContract;
 
+import java.util.ArrayList;
+
 /**
  * Created by node_coyote on 4/18/17.
  */
@@ -59,7 +61,7 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private String[] myDataset;
+    private ArrayList<String> myDataset;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,15 +74,34 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
-        myDataset = new String[]{"41", "42", "43", "44", "45", "46"};
+        myDataset = new ArrayList<String>();
+        myDataset.add("40");
+
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mLayoutManager = new LinearLayoutManager(CommanderActivity.this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+
+        String[] adaptered = myDataset.toArray(new String[myDataset.size()]);
+
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(myDataset);
+        mAdapter = new MyAdapter(adaptered);
         mRecyclerView.setAdapter(mAdapter);
+
+        ImageButton addPersonButton = (ImageButton) findViewById(R.id.add_person_image_button);
+        addPersonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDataset.add("40");
+                String[] adapted = myDataset.toArray(new String[myDataset.size()]);
+                // specify an adapter (see also next example)
+                mAdapter = new MyAdapter(adapted);
+                mRecyclerView.setAdapter(mAdapter);
+            }
+        });
+
+
 
         Intent intent = getIntent();
         mCurrentPlayerUri = intent.getData();
