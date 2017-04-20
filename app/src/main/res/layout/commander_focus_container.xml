@@ -6,7 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <include layout="@layout/normal_game_additions" />
+    <include layout="@layout/commander_additions_set" />
 
     <Button
         android:id="@+id/focus_life_add_button"

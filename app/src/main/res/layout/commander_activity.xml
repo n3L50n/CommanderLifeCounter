@@ -6,9 +6,7 @@
     android:orientation="vertical"
     tools:context="com.node_coyote.commanderlifecounter.MainActivity">
 
-    <!--<include layout="@layout/commander_additions_set" />-->
-
-    <include layout="@layout/focus_container" />
+    <include layout="@layout/commander_focus_container" />
 
     <include layout="@layout/detail_life_recycler_view" />
 

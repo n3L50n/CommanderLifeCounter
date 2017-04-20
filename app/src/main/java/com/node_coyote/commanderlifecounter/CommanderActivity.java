@@ -19,6 +19,7 @@ import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.node_coyote.commanderlifecounter.data.PlayerContract;
@@ -86,28 +87,21 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         String[] adaptered = myDataset.toArray(new String[myDataset.size()]);
 
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(adaptered);
+        mAdapter = new CommanderRecyclerAdapter(adaptered);
         mRecyclerView.setAdapter(mAdapter);
 
         ImageButton addPersonButton = (ImageButton) findViewById(R.id.add_person_image_button);
         addPersonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myDataset.add("40");
-                String[] adapted = myDataset.toArray(new String[myDataset.size()]);
-                // specify an adapter (see also next example)
-                mAdapter = new MyAdapter(adapted);
-                mRecyclerView.setAdapter(mAdapter);
+                    addPlayer();
             }
         });
 
         addPersonButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                myDataset.remove(0);
-                String[] removed = myDataset.toArray(new String[myDataset.size()]);
-                mAdapter = new MyAdapter(removed);
-                mRecyclerView.setAdapter(mAdapter);
+                    removePlayer();
                 return true;
             }
         });
@@ -292,6 +286,21 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    public void removePlayer(){
+        myDataset.remove(0);
+        String[] removed = myDataset.toArray(new String[myDataset.size()]);
+        mAdapter = new CommanderRecyclerAdapter(removed);
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
+    public void addPlayer(){
+        myDataset.add("40");
+        String[] adapted = myDataset.toArray(new String[myDataset.size()]);
+        // specify an adapter (see also next example)
+        mAdapter = new CommanderRecyclerAdapter(adapted);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override

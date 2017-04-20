@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Created by node_coyote on 4/19/17.
+ * Created by node_coyote on 4/20/17.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class CommanderRecyclerAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] mDataset;
     private MyAdapter.ViewHolder mHolder;
 
@@ -32,7 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(String[] myDataset) {
+    public CommanderRecyclerAdapter(String[] myDataset) {
         mDataset = myDataset;
     }
 
@@ -45,16 +45,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // set the view's size, margins, paddings and layout parameters
 
         TextView l = (TextView) v.findViewById(R.id.opponent_life_text_view);
-
-        // TODO maybe fit an optional poison / energy tracker here.
         TextView c = (TextView) v.findViewById(R.id.commander_detail_life_text_view);
-        mHolder = new ViewHolder(v, l, c);
+        c.setVisibility(View.VISIBLE);
+        mHolder = new MyAdapter.ViewHolder(v, l, c);
         return mHolder;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
@@ -69,4 +68,3 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         return mDataset.length;
     }
 }
-
