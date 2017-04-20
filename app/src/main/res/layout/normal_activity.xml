@@ -24,7 +24,9 @@
 
     <include layout="@layout/focus_container" />
 
-    <include layout="@layout/detail_life_view_pager" />
+    <!--<include layout="@layout/detail_life_view_pager" />-->
+
+    <include layout="@layout/recycler_view" />
 
     <include layout="@layout/utility_frag" />
 

@@ -13,6 +13,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -53,18 +55,38 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
 
     private EditText mNameEditText;
 
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private String[] myDataset;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.normal_activity);
 
-        // Find the ViewPager to display the cards
-        ViewPager detailLifeViewPager = (ViewPager) findViewById(R.id.detail_view_pager);
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
-        // Find the fragment pager to display the list of detail life cards packed with data
-        DetailLifePagerAdapter detailFragmentPagerAdapter = new DetailLifePagerAdapter(getSupportFragmentManager());
-        detailLifeViewPager.setAdapter(detailFragmentPagerAdapter);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        myDataset = new String[]{"21", "22", "23", "24", "25", "26"};
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        mAdapter = new MyAdapter(myDataset);
+        mRecyclerView.setAdapter(mAdapter);
+
+//        // Find the ViewPager to display the cards
+//        ViewPager detailLifeViewPager = (ViewPager) findViewById(R.id.detail_view_pager);
+//
+//        // Find the fragment pager to display the list of detail life cards packed with data
+//        DetailLifePagerAdapter detailFragmentPagerAdapter = new DetailLifePagerAdapter(getSupportFragmentManager());
+//        detailLifeViewPager.setAdapter(detailFragmentPagerAdapter);
 
         Intent intent = getIntent();
         mCurrentPlayerUri = intent.getData();
