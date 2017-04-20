@@ -81,13 +81,6 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
         mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
 
-//        // Find the ViewPager to display the cards
-//        ViewPager detailLifeViewPager = (ViewPager) findViewById(R.id.detail_view_pager);
-//
-//        // Find the fragment pager to display the list of detail life cards packed with data
-//        DetailLifePagerAdapter detailFragmentPagerAdapter = new DetailLifePagerAdapter(getSupportFragmentManager());
-//        detailLifeViewPager.setAdapter(detailFragmentPagerAdapter);
-
         Intent intent = getIntent();
         mCurrentPlayerUri = intent.getData();
 

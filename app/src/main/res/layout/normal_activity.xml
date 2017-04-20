@@ -14,19 +14,9 @@
         android:layout="@layout/normal_game_additions_frag"
         tools:visibility="visible" />
 
-    <ViewStub
-        android:id="@+id/commander_game_additions_stub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inflatedId="@+id/commander_game_additions_frag"
-        android:layout="@layout/commander_game_additions_frag"
-        tools:visibility="visible" />
-
     <include layout="@layout/focus_container" />
 
-    <!--<include layout="@layout/detail_life_view_pager" />-->
-
-    <include layout="@layout/recycler_view" />
+    <include layout="@layout/detail_life_recycler_view" />
 
     <include layout="@layout/utility_frag" />
 
