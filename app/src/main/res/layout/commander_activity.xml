@@ -6,13 +6,7 @@
     android:orientation="vertical"
     tools:context="com.node_coyote.commanderlifecounter.MainActivity">
 
-    <ViewStub
-        tools:visibility="visible"
-        android:id="@+id/commander_game_additions_stub"
-        android:inflatedId="@+id/commander_game_additions_frag"
-        android:layout="@layout/commander_game_additions_frag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <include layout="@layout/commander_additions_set" />
 
     <include layout="@layout/focus_container" />
 

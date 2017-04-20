@@ -89,7 +89,7 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
             mFocusLifeTotal.setText(R.string.focus_default_life_total);
         }
 
-        mNameEditText = (EditText) findViewById(R.id.name_edit_text);
+        mNameEditText = (EditText) findViewById(R.id.focus_name_edit_text);
 
         if (mCurrentPlayerUri == null){
             Log.v(LOG_TAG, "YOU LOSE! YOU GET NOTHING");
@@ -176,11 +176,6 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
 //        ViewStub normalStub = (ViewStub) findViewById(R.id.normal_game_additions_stub);
 ////        View topContainer =  normalStub.inflate();
 ////        topContainer.setVisibility(View.INVISIBLE);
-
-//        ViewStub commanderStub = (ViewStub) findViewById(R.id.commander_game_additions_stub);
-//        View commanderTopContainer = commanderStub.inflate();
-//        commanderTopContainer.setVisibility(View.VISIBLE);
-
 
     }
 

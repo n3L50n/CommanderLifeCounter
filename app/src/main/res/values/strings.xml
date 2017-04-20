@@ -9,6 +9,7 @@
 
     <!--Default Strings-->
     <string name="focus_default_life_total">20</string>
+    <string name="focus_default_commander_life_total">40</string>
 
 
     <!--Reset Dialog Strings-->
