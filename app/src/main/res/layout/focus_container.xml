@@ -1,4 +1,4 @@
-<FrameLayout android:id="@+id/focus_container"
+<android.support.v7.widget.CardView android:id="@+id/focus_container"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="4"
@@ -45,4 +45,4 @@
         android:gravity="center"
         android:hint="@string/name_hint_text" />
 
-</FrameLayout>
+</android.support.v7.widget.CardView>

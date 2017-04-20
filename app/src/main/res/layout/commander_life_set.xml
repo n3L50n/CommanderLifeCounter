@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_margin="8dp">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/GameAdditionsCardStyles"
+    android:layout_gravity="center">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:background="@color/transparent"
-        tools:text="+" />
+    <Button style="@style/AdditionPlusButtonStyle" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:layout_marginTop="36dp"
-        android:background="@color/transparent"
-        tools:text="-" />
+    <Button style="@style/AdditionMinusButtonStyle" />
 
-    <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/commander" />
+    <ImageView style="@style/AdditionImageStyle"
+        android:src="@drawable/commander"/>
 
     <TextView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:textSize="56sp"
-        tools:text="20" />
+        android:id="@+id/commander_addition_life_text_view"
+        style="@style/AdditionTextStyle" />
 
-</FrameLayout>
+</android.support.v7.widget.CardView>

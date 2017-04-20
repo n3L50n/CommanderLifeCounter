@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -40,6 +41,8 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
      * A text view for the life total of the player currently in the focus container
      */
     private TextView mFocusLifeTotal;
+
+    private TextView mCommanderLifeTotal;
 
     /**
      * Boolean value to listen for
@@ -86,6 +89,15 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         if (TextUtils.isEmpty(mFocusLifeTotal.getText())){
             mFocusLifeTotal.setText(R.string.focus_default_commander_life_total);
         }
+
+        mCommanderLifeTotal = (TextView) findViewById(R.id.commander_addition_life_text_view);
+        if (TextUtils.isEmpty(mCommanderLifeTotal.getText())){
+            mCommanderLifeTotal.setText(R.string.focus_default_life_total);
+        }
+
+//        ViewStub commanderStub = (ViewStub) findViewById(R.id.commander_game_experience_stub);
+//        View commanderTopContainer = commanderStub.inflate();
+//        commanderTopContainer.setVisibility(View.VISIBLE);
 
         mNameEditText = (EditText) findViewById(R.id.focus_name_edit_text);
 
@@ -169,10 +181,6 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
                 }
             }
         });
-
-//        ViewStub commanderStub = (ViewStub) findViewById(R.id.commander_game_additions_stub);
-//        View commanderTopContainer = commanderStub.inflate();
-//        commanderTopContainer.setVisibility(View.VISIBLE);
     }
 
     // TODO pull out to a lazier loading. Hopefully currently unused ResetPlayers class

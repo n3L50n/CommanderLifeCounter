@@ -45,8 +45,40 @@
     </style>
 
     <!--Game Additions Set Styles ei: Poison, Energy, Experience, and Commander-->
-    <style name="GameAdditionsStyles">
+    <style name="GameAdditionsCardStyles">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">@dimen/little_margin</item>
+    </style>
 
+    <style name="AdditionPlusButtonStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="AdditionMinusButtonStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:layout_marginTop">36dp</item>
+    </style>
+
+    <style name="AdditionImageStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/little_margin</item>
+    </style>
+
+    <style name="AdditionTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">72sp</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <!--Utility Layout Styles-->
