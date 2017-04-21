@@ -83,6 +83,16 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
+    <!--Focus Container Styles-->
+    <style name="FocusLifeTextStyle">
+
+    </style>
+
+    <!--Detail Card Styles-->
+    <style name="CommanderDetailLifeTextStyle">
+
+    </style>
+
     <!--Utility Layout Styles-->
     <style name="UtilityLayoutStyle">
         <item name="android:layout_width">match_parent</item>

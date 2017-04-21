@@ -1,19 +1,24 @@
 package com.node_coyote.commanderlifecounter;
 
+import android.content.ContentValues;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.node_coyote.commanderlifecounter.data.PlayerContract;
 
 /**
  * Created by node_coyote on 4/20/17.
  */
 
-public class CommanderRecyclerAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecyclerAdapter.ViewHolder> {
     private String[] mDataset;
-    private MyAdapter.ViewHolder mHolder;
+    private CommanderRecyclerAdapter.ViewHolder mHolder;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -21,13 +26,17 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<MyAdapter.Vie
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         public CardView mCardView;
-        public TextView mTextView;
-        public TextView mCommanderTextView;
-        public ViewHolder(CardView v, TextView t, TextView c) {
+        public TextView mLifeTextView;
+        public Button mPlusLifeButton;
+        public Button mMinusLifeButton;
+        public TextView mCommanderLifeTextView;
+        public ViewHolder(CardView v, TextView t, TextView c, Button p, Button m) {
             super(v);
-            mCommanderTextView = c;
+            mCommanderLifeTextView = c;
             mCardView = v;
-            mTextView = t;
+            mLifeTextView = t;
+            mPlusLifeButton = p;
+            mMinusLifeButton = m;
         }
     }
 
@@ -38,27 +47,67 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<MyAdapter.Vie
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+    public CommanderRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
         // create a new view
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_life_card, parent, false);
+        CardView a = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_life_card, parent, false);
         // set the view's size, margins, paddings and layout parameters
 
-        TextView l = (TextView) v.findViewById(R.id.opponent_life_text_view);
-        TextView c = (TextView) v.findViewById(R.id.commander_detail_life_text_view);
+        final TextView b = (TextView) a.findViewById(R.id.opponent_life_text_view);
+        TextView c = (TextView) a.findViewById(R.id.commander_detail_life_text_view);
         c.setVisibility(View.VISIBLE);
-        mHolder = new MyAdapter.ViewHolder(v, l, c);
+        Button d = (Button) a.findViewById(R.id.single_opponent_life_add_button);
+        d.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int lifeTotal = Integer.parseInt(b.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))){
+                    lifeTotal++;
+                }
+
+                String newLifeTotal = Integer.toString(lifeTotal);
+
+                b.setText(newLifeTotal);
+
+                ContentValues values = new ContentValues();
+                values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
+            }
+        });
+        Button e = (Button) a.findViewById(R.id.single_opponent_life_subtract_button);
+        e.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int lifeTotal = Integer.parseInt(b.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))){
+                    lifeTotal--;
+                }
+
+                String newLifeTotal = Integer.toString(lifeTotal);
+
+                b.setText(newLifeTotal);
+
+                ContentValues values = new ContentValues();
+                values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
+            }
+        });
+
+        mHolder = new CommanderRecyclerAdapter.ViewHolder(a, b, c, d, e);
+
         return mHolder;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(CommanderRecyclerAdapter.ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
 
-        mHolder.mTextView.setText(mDataset[position]);
+        mHolder.mLifeTextView.setText(mDataset[position]);
 
     }
 

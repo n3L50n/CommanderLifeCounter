@@ -49,6 +49,7 @@
     </FrameLayout>
 
     <TextView
+        style="@style/CommanderDetailLifeTextStyle"
         android:visibility="invisible"
         android:id="@+id/commander_detail_life_text_view"
         android:text="23"
