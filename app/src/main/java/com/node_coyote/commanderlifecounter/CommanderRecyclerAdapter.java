@@ -30,13 +30,15 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
         public Button mPlusLifeButton;
         public Button mMinusLifeButton;
         public TextView mCommanderLifeTextView;
-        public ViewHolder(CardView v, TextView t, TextView c, Button p, Button m) {
+        public Button mCommanderLifeButton;
+        public ViewHolder(CardView v, TextView t, TextView c, Button p, Button m, Button l) {
             super(v);
             mCommanderLifeTextView = c;
             mCardView = v;
             mLifeTextView = t;
             mPlusLifeButton = p;
             mMinusLifeButton = m;
+            mCommanderLifeButton = l;
         }
     }
 
@@ -54,7 +56,7 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
         // set the view's size, margins, paddings and layout parameters
 
         final TextView b = (TextView) a.findViewById(R.id.opponent_life_text_view);
-        TextView c = (TextView) a.findViewById(R.id.commander_detail_life_text_view);
+        final TextView c = (TextView) a.findViewById(R.id.commander_detail_life_text_view);
         c.setVisibility(View.VISIBLE);
         Button d = (Button) a.findViewById(R.id.single_opponent_life_add_button);
         d.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +96,44 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
                 values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
             }
         });
+        Button f = (Button) a.findViewById(R.id.add_subtract_commander_damage);
+        f.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int lifeTotal = Integer.parseInt(c.getText().toString());
 
-        mHolder = new CommanderRecyclerAdapter.ViewHolder(a, b, c, d, e);
+                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))){
+                    lifeTotal++;
+                }
+
+                String newLifeTotal = Integer.toString(lifeTotal);
+
+                c.setText(newLifeTotal);
+
+                ContentValues values = new ContentValues();
+                values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
+            }
+        });
+        f.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int lifeTotal = Integer.parseInt(c.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))){
+                    lifeTotal--;
+                }
+
+                String newLifeTotal = Integer.toString(lifeTotal);
+
+                c.setText(newLifeTotal);
+
+                ContentValues values = new ContentValues();
+                values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
+                return true;
+            }
+        });
+
+        mHolder = new CommanderRecyclerAdapter.ViewHolder(a, b, c, d, e, f);
 
         return mHolder;
     }
