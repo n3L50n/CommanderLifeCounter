@@ -114,11 +114,6 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
             mFocusLifeTotal.setText(R.string.focus_default_commander_life_total);
         }
 
-        mCommanderLifeTotal = (TextView) findViewById(R.id.commander_addition_life_text_view);
-        if (TextUtils.isEmpty(mCommanderLifeTotal.getText())){
-            mCommanderLifeTotal.setText(R.string.focus_default_life_total);
-        }
-
 //        ViewStub commanderStub = (ViewStub) findViewById(R.id.commander_game_experience_stub);
 //        View commanderTopContainer = commanderStub.inflate();
 //        commanderTopContainer.setVisibility(View.VISIBLE);
@@ -131,54 +126,6 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
             //TODO Load at correct time
             getLoaderManager().initLoader(EXISTING_PLAYER_LOADER, null, this);
         }
-
-        // Add one to a players commander damage in focus container
-        Button focusCommanderPlusButton = (Button) findViewById(R.id.commander_life_plus_button);
-        focusCommanderPlusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                int commanderLifeTotal = Integer.parseInt(mCommanderLifeTotal.getText().toString());
-
-                if (!TextUtils.isEmpty(String.valueOf(commanderLifeTotal))) {
-                    commanderLifeTotal++;
-                }
-                    String newCommanderLifeTotal = Integer.toString(commanderLifeTotal);
-
-                    mCommanderLifeTotal.setText(newCommanderLifeTotal);
-
-                    ContentValues values = new ContentValues();
-                    values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_COMMANDER_LIFE, newCommanderLifeTotal);
-
-                    if (mCurrentPlayerUri != null){
-                        mCurrentPlayerUri = getContentResolver().insert(mCurrentPlayerUri, values);
-                    }
-            }
-        });
-
-        // Subtract one to a players commander damage in focus container
-        Button focusCommanderMinusButton = (Button) findViewById(R.id.commander_life_minus_button);
-        focusCommanderMinusButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                int commanderLifeTotal = Integer.parseInt(mCommanderLifeTotal.getText().toString());
-
-                if (!TextUtils.isEmpty(String.valueOf(commanderLifeTotal))) {
-                    commanderLifeTotal--;
-                }
-                String newCommanderLifeTotal = Integer.toString(commanderLifeTotal);
-
-                mCommanderLifeTotal.setText(newCommanderLifeTotal);
-
-                ContentValues values = new ContentValues();
-                values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_COMMANDER_LIFE, newCommanderLifeTotal);
-
-                if (mCurrentPlayerUri != null){
-                    mCurrentPlayerUri = getContentResolver().insert(mCurrentPlayerUri, values);
-                }
-            }
-        });
 
         // Add one to the focus players life total
         Button addFocusLife = (Button) findViewById(R.id.focus_life_add_button);

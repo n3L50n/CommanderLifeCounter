@@ -12,8 +12,6 @@
         android:inflatedId="@+id/commander_game_energy_set"
         android:layout="@layout/energy_counter_set" />
 
-    <include layout="@layout/commander_life_set" />
-
     <ViewStub
         android:id="@+id/commander_game_experience_stub"
         android:layout_width="wrap_content"
