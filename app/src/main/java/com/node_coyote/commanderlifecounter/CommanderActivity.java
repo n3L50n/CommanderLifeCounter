@@ -60,6 +60,8 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
     private EditText mNameEditText;
 
     private Button mFocusCommanderTax;
+    private Button mEnergyButton;
+    private Button mExperienceButton;
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -212,6 +214,82 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
                 String newFocusCommanderTax = Integer.toString(focusCommanderTax);
 
                 mFocusCommanderTax.setText("+" + newFocusCommanderTax);
+
+                return true;
+            }
+        });
+
+        mEnergyButton = (Button) findViewById(R.id.energy_button);
+        mEnergyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int energyCount = Integer.parseInt(mEnergyButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(energyCount))) {
+                    energyCount++;
+                }
+
+                String newEnergyCount = Integer.toString(energyCount);
+
+                mEnergyButton.setText(newEnergyCount);
+            }
+        });
+
+        mEnergyButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int energyCount = Integer.parseInt(mEnergyButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(energyCount))) {
+                    if (energyCount <= 0) {
+                        energyCount = 0;
+                    } else {
+                        energyCount--;
+                    }
+                }
+
+                String newEnergyCount = Integer.toString(energyCount);
+
+                mEnergyButton.setText(newEnergyCount);
+
+                return true;
+            }
+        });
+
+        mExperienceButton = (Button) findViewById(R.id.experience_button);
+        mExperienceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int experienceCount = Integer.parseInt(mExperienceButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(experienceCount))) {
+                    experienceCount++;
+                }
+
+                String newExperienceCount = Integer.toString(experienceCount);
+
+                mExperienceButton.setText(newExperienceCount);
+            }
+        });
+
+        mExperienceButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int experienceCount = Integer.parseInt(mExperienceButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(experienceCount))) {
+                    if (experienceCount <= 0) {
+                        experienceCount = 0;
+                    } else {
+                        experienceCount--;
+                    }
+                }
+
+                String newExperienceCount = Integer.toString(experienceCount);
+
+                mExperienceButton.setText(newExperienceCount);
 
                 return true;
             }

@@ -45,13 +45,14 @@
     </style>
 
     <!--Game Additions Set Styles ei: Poison, Energy, Experience, and Commander-->
-    <style name="GameAdditionsCardStyles">
+    <style name="GameAdditionsStyles">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">@dimen/little_margin</item>
     </style>
 
+    <!--TODO remove?-->
     <style name="AdditionPlusButtonStyle">
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_width">130dp</item>
@@ -60,6 +61,7 @@
         <item name="android:background">@color/transparent</item>
     </style>
 
+    <!--TODO remove?-->
     <style name="AdditionMinusButtonStyle">
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_width">130dp</item>
@@ -68,10 +70,11 @@
         <item name="android:background">@color/transparent</item>
     </style>
 
+    <!--TODO remove?-->
     <style name="AdditionImageStyle">
         <item name="android:gravity">center</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">84dp</item>
+        <item name="android:layout_height">84dp</item>
         <item name="android:padding">@dimen/little_margin</item>
     </style>
 
