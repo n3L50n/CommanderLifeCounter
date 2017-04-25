@@ -5,18 +5,38 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <ViewStub
-        android:id="@+id/commander_game_energy_stub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inflatedId="@+id/commander_game_energy_set"
-        android:layout="@layout/energy_counter_set" />
+    <FrameLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="8dp">
 
-    <ViewStub
-        android:id="@+id/commander_game_experience_stub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inflatedId="@+id/commander_game_experience_set"
-        android:layout="@layout/experience_counter_set" />
+        <include layout="@layout/energy_counter_set" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:background="@color/colorAccent"
+        android:layout_gravity="center"
+        android:layout_width="75dp"
+        android:layout_height="75dp">
+
+        <Button
+            android:id="@+id/focus_commander_tax_button"
+            android:text="@string/commander_tax_tracker_string"
+            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="8dp">
+
+        <include layout="@layout/experience_counter_set" />
+
+    </FrameLayout>
 
 </LinearLayout>

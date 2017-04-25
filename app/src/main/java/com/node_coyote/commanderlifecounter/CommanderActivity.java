@@ -59,6 +59,8 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
 
     private EditText mNameEditText;
 
+    private Button mFocusCommanderTax;
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -94,14 +96,14 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         addPersonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    addPlayer();
+                addPlayer();
             }
         });
 
         addPersonButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                    removePlayer();
+                removePlayer();
                 return true;
             }
         });
@@ -110,17 +112,13 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         mCurrentPlayerUri = intent.getData();
 
         mFocusLifeTotal = (TextView) findViewById(R.id.focus_life_text_view);
-        if (TextUtils.isEmpty(mFocusLifeTotal.getText())){
+        if (TextUtils.isEmpty(mFocusLifeTotal.getText())) {
             mFocusLifeTotal.setText(R.string.focus_default_commander_life_total);
         }
 
-//        ViewStub commanderStub = (ViewStub) findViewById(R.id.commander_game_experience_stub);
-//        View commanderTopContainer = commanderStub.inflate();
-//        commanderTopContainer.setVisibility(View.VISIBLE);
-
         mNameEditText = (EditText) findViewById(R.id.focus_name_edit_text);
 
-        if (mCurrentPlayerUri == null){
+        if (mCurrentPlayerUri == null) {
             Log.v(LOG_TAG, "YOU LOSE! YOU GET NOTHING");
         } else {
             //TODO Load at correct time
@@ -136,8 +134,8 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
                 // Pull out the current life total
                 int lifeTotal = Integer.parseInt(mFocusLifeTotal.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))){
-                    lifeTotal ++;
+                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))) {
+                    lifeTotal++;
                 }
 
                 String newLifeTotal = Integer.toString(lifeTotal);
@@ -147,7 +145,7 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
                 ContentValues values = new ContentValues();
                 values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
 
-                if (mCurrentPlayerUri != null){
+                if (mCurrentPlayerUri != null) {
                     mCurrentPlayerUri = getContentResolver().insert(mCurrentPlayerUri, values);
                 }
 
@@ -163,8 +161,8 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
                 // Pull out the current life total
                 int lifeTotal = Integer.parseInt(mFocusLifeTotal.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))){
-                    lifeTotal --;
+                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))) {
+                    lifeTotal--;
                 }
 
                 String newLifeTotal = Integer.toString(lifeTotal);
@@ -174,10 +172,48 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
                 ContentValues values = new ContentValues();
                 values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
 
-                if (mCurrentPlayerUri != null){
+                if (mCurrentPlayerUri != null) {
                     mCurrentPlayerUri = getContentResolver().insert(mCurrentPlayerUri, values);
                 }
 
+            }
+        });
+
+        mFocusCommanderTax = (Button) findViewById(R.id.focus_commander_tax_button);
+        mFocusCommanderTax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int focusCommanderTax = Integer.parseInt(mFocusCommanderTax.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(focusCommanderTax))) {
+                    focusCommanderTax = focusCommanderTax + 2;
+                }
+
+                String newFocusCommanderTax = Integer.toString(focusCommanderTax);
+
+                mFocusCommanderTax.setText("+" + newFocusCommanderTax);
+            }
+        });
+
+        mFocusCommanderTax.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int focusCommanderTax = Integer.parseInt(mFocusCommanderTax.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(focusCommanderTax))) {
+                    if (focusCommanderTax <= 0) {
+                        focusCommanderTax = 0;
+                    } else {
+                        focusCommanderTax = focusCommanderTax - 2;
+                    }
+                }
+
+                String newFocusCommanderTax = Integer.toString(focusCommanderTax);
+
+                mFocusCommanderTax.setText("+" + newFocusCommanderTax);
+
+                return true;
             }
         });
 
@@ -186,7 +222,7 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mResetClicked){
+                if (mResetClicked) {
                     return;
                 } else {
                     //If so lets pop up a dialog to verify a possible winner
@@ -225,7 +261,7 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         builder.setNeutralButton(R.string.reset_dialog_dont_care, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (dialog != null){
+                if (dialog != null) {
                     dialog.dismiss();
                 }
             }
@@ -235,14 +271,14 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         alertDialog.show();
     }
 
-    public void removePlayer(){
+    public void removePlayer() {
         myDataset.remove(0);
         String[] removed = myDataset.toArray(new String[myDataset.size()]);
         mAdapter = new CommanderRecyclerAdapter(removed);
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    public void addPlayer(){
+    public void addPlayer() {
         myDataset.add("40");
         String[] adapted = myDataset.toArray(new String[myDataset.size()]);
         // specify an adapter (see also next example)

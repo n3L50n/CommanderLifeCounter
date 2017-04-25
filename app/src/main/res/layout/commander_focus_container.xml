@@ -36,6 +36,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="@dimen/focus_life_text_view"
+        android:textColor="@android:color/black"
         tools:text="20" />
 
     <EditText
