@@ -10,7 +10,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +23,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.node_coyote.commanderlifecounter.data.PlayerContract;
+
+import java.util.ArrayList;
 
 /**
  * Created by node_coyote on 4/18/17.
@@ -55,10 +56,13 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
 
     private EditText mNameEditText;
 
+    private Button mPoisonButton;
+    private Button mEnergyButton;
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private String[] myDataset;
+    private ArrayList<String> myDataset;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,14 +75,17 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
-        myDataset = new String[]{"21", "22", "23", "24", "25", "26"};
+        myDataset = new ArrayList<String>();
+        myDataset.add("40");
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mLayoutManager = new LinearLayoutManager(NormalGameActivity.this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        String[] adaptered = myDataset.toArray(new String[myDataset.size()]);
+
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(myDataset);
+        mAdapter = new NormalGameRecyclerAdapter(adaptered);
         mRecyclerView.setAdapter(mAdapter);
 
         Intent intent = getIntent();
@@ -152,6 +159,83 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
             }
         });
 
+        mPoisonButton = (Button) findViewById(R.id.poison_button);
+        mPoisonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int poisonCount = Integer.parseInt(mPoisonButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(poisonCount))) {
+                    poisonCount++;
+                }
+
+                String newPoisonCount = Integer.toString(poisonCount);
+
+                mPoisonButton.setText(newPoisonCount);
+            }
+        });
+
+        mPoisonButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int poisonCount = Integer.parseInt(mPoisonButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(poisonCount))) {
+                    if (poisonCount <= 0) {
+                        poisonCount = 0;
+                    } else {
+                        poisonCount--;
+                    }
+                }
+
+                String newPoisonCount = Integer.toString(poisonCount);
+
+                mPoisonButton.setText(newPoisonCount);
+
+                return true;
+            }
+        });
+
+        mEnergyButton = (Button) findViewById(R.id.energy_button);
+        mEnergyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int energyCount = Integer.parseInt(mEnergyButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(energyCount))) {
+                    energyCount++;
+                }
+
+                String newEnergyCount = Integer.toString(energyCount);
+
+                mEnergyButton.setText(newEnergyCount);
+            }
+        });
+
+        mEnergyButton.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int energyCount = Integer.parseInt(mEnergyButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(energyCount))) {
+                    if (energyCount <= 0) {
+                        energyCount = 0;
+                    } else {
+                        energyCount--;
+                    }
+                }
+
+                String newEnergyCount = Integer.toString(energyCount);
+
+                mEnergyButton.setText(newEnergyCount);
+
+                return true;
+            }
+        });
+
+
         // TODO move dialog logic out of onCreate if possible
         ImageButton resetButton = (ImageButton) findViewById(R.id.reset_image_view);
         resetButton.setOnClickListener(new View.OnClickListener() {
@@ -171,12 +255,6 @@ public class NormalGameActivity extends AppCompatActivity implements LoaderManag
                 }
             }
         });
-
-        // TODO Distribute ViewStubs depending on the version of Magic chosen
-//        ViewStub normalStub = (ViewStub) findViewById(R.id.normal_game_additions_stub);
-////        View topContainer =  normalStub.inflate();
-////        topContainer.setVisibility(View.INVISIBLE);
-
     }
 
 

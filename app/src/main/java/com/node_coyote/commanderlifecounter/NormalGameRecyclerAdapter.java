@@ -3,7 +3,6 @@ package com.node_coyote.commanderlifecounter;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -11,9 +10,9 @@ import android.widget.TextView;
  * Created by node_coyote on 4/19/17.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+public class NormalGameRecyclerAdapter extends RecyclerView.Adapter<NormalGameRecyclerAdapter.ViewHolder> {
     private String[] mDataset;
-    private MyAdapter.ViewHolder mHolder;
+    private NormalGameRecyclerAdapter.ViewHolder mHolder;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -32,14 +31,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(String[] myDataset) {
+    public NormalGameRecyclerAdapter(String[] myDataset) {
         mDataset = myDataset;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public NormalGameRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                                   int viewType) {
         // create a new view
         CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_life_card, parent, false);
         // set the view's size, margins, paddings and layout parameters
