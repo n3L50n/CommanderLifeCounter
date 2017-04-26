@@ -54,12 +54,12 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
     public CommanderRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
         // create a new view
-        CardView a = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_life_card, parent, false);
-        // set the view's size, margins, paddings and layout parameters
+        CardView a = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.commander_detail_card, parent, false);
+        // set the view's size, margins, padding and layout parameters
 
-        final TextView b = (TextView) a.findViewById(R.id.opponent_life_text_view);
-        final TextView c = (TextView) a.findViewById(R.id.commander_detail_life_text_view);
-        Button d = (Button) a.findViewById(R.id.single_opponent_life_add_button);
+        final TextView b = (TextView) a.findViewById(R.id.detail_life_view);
+        final TextView c = (TextView) a.findViewById(R.id.commander_detail_life_view);
+        Button d = (Button) a.findViewById(R.id.commander_detail_plus_button);
         d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +78,7 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
                 values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
             }
         });
-        Button e = (Button) a.findViewById(R.id.single_opponent_life_subtract_button);
+        Button e = (Button) a.findViewById(R.id.commander_detail_minus_button);
         e.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,7 +133,7 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
                 return true;
             }
         });
-        final Button g = (Button) a.findViewById(R.id.opponent_commander_tax);
+        final Button g = (Button) a.findViewById(R.id.detail_commander_tax);
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,9 +144,9 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
                     commanderTax = commanderTax + 2;
                 }
 
-                String newCommanerTax = Integer.toString(commanderTax);
+                String newCommamderTax = Integer.toString(commanderTax);
 
-                g.setText("+" + newCommanerTax);
+                g.setText("+" + newCommamderTax);
             }
         });
 

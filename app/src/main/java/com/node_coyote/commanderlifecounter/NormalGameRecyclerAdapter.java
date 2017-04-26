@@ -43,10 +43,10 @@ public class NormalGameRecyclerAdapter extends RecyclerView.Adapter<NormalGameRe
         CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_life_card, parent, false);
         // set the view's size, margins, paddings and layout parameters
 
-        TextView l = (TextView) v.findViewById(R.id.opponent_life_text_view);
+        TextView l = (TextView) v.findViewById(R.id.detail_life_text_view);
 
         // TODO maybe fit an optional poison / energy tracker here.
-        TextView c = (TextView) v.findViewById(R.id.commander_detail_life_text_view);
+        TextView c = (TextView) v.findViewById(R.id.detail_open_counter);
         mHolder = new ViewHolder(v, l, c);
         return mHolder;
     }

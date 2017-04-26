@@ -1,6 +1,6 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/detail_life_container"
+    android:id="@+id/commander_detail_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -16,7 +16,7 @@
         android:padding="@dimen/little_margin">
 
         <Button
-            android:id="@+id/detail_plus_button"
+            android:id="@+id/commander_detail_plus_button"
             android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -26,7 +26,7 @@
             tools:text="+" />
 
         <Button
-            android:id="@+id/detail_minus_button"
+            android:id="@+id/commander_detail_minus_button"
             android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -36,7 +36,7 @@
             tools:text="-" />
 
         <TextView
-            android:id="@+id/detail_life_text_view"
+            android:id="@+id/detail_life_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -49,19 +49,25 @@
     </FrameLayout>
 
     <Button
-        android:id="@+id/detail_poison_minus_plus_button"
+        android:id="@+id/add_subtract_commander_damage"
         android:layout_width="@dimen/commander_detail_button_width"
         android:layout_height="wrap_content"
-        android:background="@color/transparent"
+        android:background="@color/transparent" />
+
+    <TextView
+        android:id="@+id/commander_detail_life_view"
+        style="@style/CommanderDetailLifeTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:padding="@dimen/little_margin"
         android:text="@string/empty_counter_default_text"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <Button
-        android:id="@+id/detail_open_counter"
-        android:layout_gravity="top|end"
+        android:id="@+id/detail_commander_tax"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_gravity="top|end"
         android:text="@string/commander_tax_tracker_default_text"
         android:textSize="20sp" />
 
