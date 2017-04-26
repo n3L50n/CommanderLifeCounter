@@ -8,12 +8,12 @@
     android:gravity="center">
 
     <FrameLayout
-        android:padding="@dimen/little_margin"
-        android:layout_marginTop="@dimen/basic_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/basic_margin"
+        android:padding="@dimen/little_margin">
 
         <Button
             android:id="@+id/single_opponent_life_add_button"
@@ -40,30 +40,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:gravity="center"
             android:paddingLeft="@dimen/basic_margin"
             android:paddingRight="@dimen/basic_margin"
-            android:gravity="center"
-            android:text="20"
+            android:text="@string/empty_counter_default_text"
             android:textSize="@dimen/single_opponent_life_text_view"
             tools:text="20" />
     </FrameLayout>
 
     <Button
-        android:background="@color/transparent"
         android:id="@+id/add_subtract_commander_damage"
         android:layout_width="@dimen/commander_detail_button_width"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/transparent" />
 
     <TextView
-        style="@style/CommanderDetailLifeTextStyle"
-        android:padding="@dimen/little_margin"
-        android:visibility="invisible"
         android:id="@+id/commander_detail_life_text_view"
-        android:text="0"
-        android:textSize="20dp"
+        style="@style/CommanderDetailLifeTextStyle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="@dimen/little_margin"
+        android:text="@string/empty_counter_default_text"
+        android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/opponent_commander_tax"
+        android:layout_gravity="top|end"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="@string/commander_tax_tracker_default_text"
+        android:textSize="20sp" />
 
     <EditText
         android:layout_width="wrap_content"

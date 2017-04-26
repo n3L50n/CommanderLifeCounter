@@ -350,10 +350,12 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
     }
 
     public void removePlayer() {
-        myDataset.remove(0);
-        String[] removed = myDataset.toArray(new String[myDataset.size()]);
-        mAdapter = new CommanderRecyclerAdapter(removed);
-        mRecyclerView.setAdapter(mAdapter);
+        if (myDataset.size() > 0) {
+            myDataset.remove(0);
+            String[] removed = myDataset.toArray(new String[myDataset.size()]);
+            mAdapter = new CommanderRecyclerAdapter(removed);
+            mRecyclerView.setAdapter(mAdapter);
+        }
     }
 
     public void addPlayer() {

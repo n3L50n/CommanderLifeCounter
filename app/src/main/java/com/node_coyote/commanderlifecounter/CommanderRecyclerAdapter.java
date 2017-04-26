@@ -31,7 +31,8 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
         public Button mMinusLifeButton;
         public TextView mCommanderLifeTextView;
         public Button mCommanderLifeButton;
-        public ViewHolder(CardView v, TextView t, TextView c, Button p, Button m, Button l) {
+        public Button mFocusCommanderTax;
+        public ViewHolder(CardView v, TextView t, TextView c, Button p, Button m, Button l, Button f) {
             super(v);
             mCommanderLifeTextView = c;
             mCardView = v;
@@ -39,6 +40,7 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
             mPlusLifeButton = p;
             mMinusLifeButton = m;
             mCommanderLifeButton = l;
+            mFocusCommanderTax = f;
         }
     }
 
@@ -57,7 +59,6 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
 
         final TextView b = (TextView) a.findViewById(R.id.opponent_life_text_view);
         final TextView c = (TextView) a.findViewById(R.id.commander_detail_life_text_view);
-        c.setVisibility(View.VISIBLE);
         Button d = (Button) a.findViewById(R.id.single_opponent_life_add_button);
         d.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,8 +133,45 @@ public class CommanderRecyclerAdapter extends RecyclerView.Adapter<CommanderRecy
                 return true;
             }
         });
+        final Button g = (Button) a.findViewById(R.id.opponent_commander_tax);
+        g.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        mHolder = new CommanderRecyclerAdapter.ViewHolder(a, b, c, d, e, f);
+                int commanderTax = Integer.parseInt(g.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(commanderTax))) {
+                    commanderTax = commanderTax + 2;
+                }
+
+                String newCommanerTax = Integer.toString(commanderTax);
+
+                g.setText("+" + newCommanerTax);
+            }
+        });
+
+        g.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int commanderTax = Integer.parseInt(g.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(commanderTax))) {
+                    if (commanderTax <= 0) {
+                        commanderTax = 0;
+                    } else {
+                        commanderTax = commanderTax - 2;
+                    }
+                }
+
+                String newCommanderTax = Integer.toString(commanderTax);
+
+                g.setText("+" + newCommanderTax);
+
+                return true;
+            }
+        });
+
+        mHolder = new CommanderRecyclerAdapter.ViewHolder(a, b, c, d, e, f, g);
 
         return mHolder;
     }
