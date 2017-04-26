@@ -12,6 +12,8 @@
     <string name="focus_default_commander_life_total">40</string>
     <string name="empty_counter_default_text">0</string>
     <string name="commander_tax_tracker_default_text">+0</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
 
     <!--Reset Dialog Strings-->
     <string name="reset_dialog_default_message">Reset eh? Did Player One win with 20 life?</string>

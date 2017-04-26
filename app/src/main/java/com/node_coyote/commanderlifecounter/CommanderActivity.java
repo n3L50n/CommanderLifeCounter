@@ -43,9 +43,17 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
     /**
      * A text view for the life total of the player currently in the focus container
      */
-    private TextView mFocusLifeTotal;
+    private TextView mFocusLifeTotalView;
+    private int mFocusLifeTotal;
 
-    private TextView mCommanderLifeTotal;
+    private Button mFocusCommanderTaxButton;
+    private int mFocusCommanderTax;
+
+    private Button mEnergyButton;
+    private int mEnergyTotal;
+
+    private Button mExperienceButton;
+    private int mExperienceTotal;
 
     /**
      * Boolean value to listen for
@@ -59,10 +67,6 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
 
     private EditText mNameEditText;
 
-    private Button mFocusCommanderTax;
-    private Button mEnergyButton;
-    private Button mExperienceButton;
-
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -72,6 +76,11 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.commander_activity);
+
+        mFocusCommanderTax = 0;
+        mFocusLifeTotal = 40;
+        mEnergyTotal = 0;
+        mExperienceTotal = 0;
 
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
@@ -113,11 +122,12 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         Intent intent = getIntent();
         mCurrentPlayerUri = intent.getData();
 
-        mFocusLifeTotal = (TextView) findViewById(R.id.focus_life_text_view);
-        if (TextUtils.isEmpty(mFocusLifeTotal.getText())) {
-            mFocusLifeTotal.setText(R.string.focus_default_commander_life_total);
+        mFocusLifeTotalView = (TextView) findViewById(R.id.focus_life_text_view);
+        if (TextUtils.isEmpty(mFocusLifeTotalView.getText())) {
+            mFocusLifeTotalView.setText(R.string.focus_default_commander_life_total);
         }
 
+        // TODO grab and store the players name (Default in database "Player" + _ID
         mNameEditText = (EditText) findViewById(R.id.focus_name_edit_text);
 
         if (mCurrentPlayerUri == null) {
@@ -134,15 +144,15 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
             public void onClick(View v) {
 
                 // Pull out the current life total
-                int lifeTotal = Integer.parseInt(mFocusLifeTotal.getText().toString());
+                mFocusLifeTotal = Integer.parseInt(mFocusLifeTotalView.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))) {
-                    lifeTotal++;
+                if (!TextUtils.isEmpty(String.valueOf(mFocusLifeTotal))) {
+                    mFocusLifeTotal++;
                 }
 
-                String newLifeTotal = Integer.toString(lifeTotal);
+                String newLifeTotal = Integer.toString(mFocusLifeTotal);
 
-                mFocusLifeTotal.setText(newLifeTotal);
+                mFocusLifeTotalView.setText(newLifeTotal);
 
                 ContentValues values = new ContentValues();
                 values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
@@ -161,15 +171,15 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
             public void onClick(View v) {
 
                 // Pull out the current life total
-                int lifeTotal = Integer.parseInt(mFocusLifeTotal.getText().toString());
+                mFocusLifeTotal = Integer.parseInt(mFocusLifeTotalView.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(lifeTotal))) {
-                    lifeTotal--;
+                if (!TextUtils.isEmpty(String.valueOf(mFocusLifeTotal))) {
+                    mFocusLifeTotal--;
                 }
 
-                String newLifeTotal = Integer.toString(lifeTotal);
+                String newLifeTotal = Integer.toString(mFocusLifeTotal);
 
-                mFocusLifeTotal.setText(newLifeTotal);
+                mFocusLifeTotalView.setText(newLifeTotal);
 
                 ContentValues values = new ContentValues();
                 values.put(PlayerContract.PlayerEntry.COLUMN_PLAYER_LIFE, newLifeTotal);
@@ -181,39 +191,40 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
             }
         });
 
-        mFocusCommanderTax = (Button) findViewById(R.id.focus_commander_tax_button);
-        mFocusCommanderTax.setOnClickListener(new View.OnClickListener() {
+        mFocusCommanderTaxButton = (Button) findViewById(R.id.focus_commander_tax_button);
+        mFocusCommanderTaxButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                int focusCommanderTax = Integer.parseInt(mFocusCommanderTax.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(focusCommanderTax))) {
-                    focusCommanderTax = focusCommanderTax + 2;
+                mFocusCommanderTax = Integer.parseInt(mFocusCommanderTaxButton.getText().toString());
+
+                if (!TextUtils.isEmpty(String.valueOf(mFocusCommanderTax))) {
+                    mFocusCommanderTax = mFocusCommanderTax + 2;
                 }
 
-                String newFocusCommanderTax = Integer.toString(focusCommanderTax);
+                String newFocusCommanderTax = Integer.toString(mFocusCommanderTax);
 
-                mFocusCommanderTax.setText("+" + newFocusCommanderTax);
+                mFocusCommanderTaxButton.setText("+" + newFocusCommanderTax);
             }
         });
 
-        mFocusCommanderTax.setOnLongClickListener(new View.OnLongClickListener() {
+        mFocusCommanderTaxButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                int focusCommanderTax = Integer.parseInt(mFocusCommanderTax.getText().toString());
+                mFocusCommanderTax = Integer.parseInt(mFocusCommanderTaxButton.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(focusCommanderTax))) {
-                    if (focusCommanderTax <= 0) {
-                        focusCommanderTax = 0;
+                if (!TextUtils.isEmpty(String.valueOf(mFocusCommanderTax))) {
+                    if (mFocusCommanderTax <= 0) {
+                        mFocusCommanderTax = 0;
                     } else {
-                        focusCommanderTax = focusCommanderTax - 2;
+                        mFocusCommanderTax = mFocusCommanderTax - 2;
                     }
                 }
 
-                String newFocusCommanderTax = Integer.toString(focusCommanderTax);
+                String newFocusCommanderTax = Integer.toString(mFocusCommanderTax);
 
-                mFocusCommanderTax.setText("+" + newFocusCommanderTax);
+                mFocusCommanderTaxButton.setText("+" + newFocusCommanderTax);
 
                 return true;
             }
@@ -224,13 +235,13 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
             @Override
             public void onClick(View v) {
 
-                int energyCount = Integer.parseInt(mEnergyButton.getText().toString());
+                mEnergyTotal = Integer.parseInt(mEnergyButton.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(energyCount))) {
-                    energyCount++;
+                if (!TextUtils.isEmpty(String.valueOf(mEnergyTotal))) {
+                    mEnergyTotal++;
                 }
 
-                String newEnergyCount = Integer.toString(energyCount);
+                String newEnergyCount = Integer.toString(mEnergyTotal);
 
                 mEnergyButton.setText(newEnergyCount);
             }
@@ -239,17 +250,17 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         mEnergyButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                int energyCount = Integer.parseInt(mEnergyButton.getText().toString());
+                mEnergyTotal = Integer.parseInt(mEnergyButton.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(energyCount))) {
-                    if (energyCount <= 0) {
-                        energyCount = 0;
+                if (!TextUtils.isEmpty(String.valueOf(mEnergyTotal))) {
+                    if (mEnergyTotal <= 0) {
+                        mEnergyTotal = 0;
                     } else {
-                        energyCount--;
+                        mEnergyTotal--;
                     }
                 }
 
-                String newEnergyCount = Integer.toString(energyCount);
+                String newEnergyCount = Integer.toString(mEnergyTotal);
 
                 mEnergyButton.setText(newEnergyCount);
 
@@ -262,13 +273,13 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
             @Override
             public void onClick(View v) {
 
-                int experienceCount = Integer.parseInt(mExperienceButton.getText().toString());
+                mExperienceTotal = Integer.parseInt(mExperienceButton.getText().toString());
 
-                if (!TextUtils.isEmpty(String.valueOf(experienceCount))) {
-                    experienceCount++;
+                if (!TextUtils.isEmpty(String.valueOf(mExperienceTotal))) {
+                    mExperienceTotal++;
                 }
 
-                String newExperienceCount = Integer.toString(experienceCount);
+                String newExperienceCount = Integer.toString(mExperienceTotal);
 
                 mExperienceButton.setText(newExperienceCount);
             }
@@ -307,7 +318,7 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
                     DialogInterface.OnClickListener resetDialog = new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //
+                            resetValues();
                         }
                     };
                     showResetDialog(resetDialog);
@@ -364,6 +375,25 @@ public class CommanderActivity extends AppCompatActivity implements LoaderManage
         // specify an adapter (see also next example)
         mAdapter = new CommanderRecyclerAdapter(adapted);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    public void resetValues(){
+        // Set values to 0?
+        mFocusCommanderTax = 0;
+        String resetCommanderTax = "+" + String.valueOf(mFocusCommanderTax);
+        mFocusCommanderTaxButton.setText(resetCommanderTax);
+
+        mFocusLifeTotal = 40;
+        String lifeTotal = String.valueOf(mFocusLifeTotal);
+        mFocusLifeTotalView.setText(lifeTotal);
+
+        mExperienceTotal = 0;
+        String experienceTotal = String.valueOf(mExperienceTotal);
+        mExperienceButton.setText(experienceTotal);
+
+        mEnergyTotal = 0;
+        String energyTotal = String.valueOf(mEnergyTotal);
+        mEnergyButton.setText(energyTotal);
     }
 
     @Override
